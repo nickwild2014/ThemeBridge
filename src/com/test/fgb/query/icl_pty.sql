@@ -1,0 +1,1 @@
+select c.cus_mnm as customerid FROM master a, collmaster b, partydtls c where a.key97=b.key97 and b.drawee_pty=c.key97 and a.master_ref = '{referenceNumber}'

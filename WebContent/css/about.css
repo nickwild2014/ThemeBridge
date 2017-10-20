@@ -1,0 +1,63 @@
+/**
+-	Prasath Ravichandran, 2016-04-20, 
+-	For the use of "about.jsp" only. Don't import on other pages.
+**/
+
+#header {
+	background-color: #0070B6;
+	color: white;
+	text-align: left;
+	padding: 1px;	
+}
+
+#nav {
+	line-height: 30px;
+	background-color: #eeeeee;
+	/*height: 860px;
+	width: 250px;*/
+	height: 100%;
+	width: 17%;
+	float: left;
+	padding: 5px;
+}
+
+#section {
+	width: 83%;
+	float: left;
+	padding: 10px;
+}
+
+#footer {
+	background-color: lightgrey;
+	color: white;
+	clear: both;
+	text-align: center;
+	padding: 5px;
+}
+
+#nav-menu {
+	margin-left: 25px;
+}
+
+#MainMenu {
+	margin: 50px;
+}
+
+.list-group.panel>.list-group-item {
+	border-bottom-right-radius: 4px;
+	border-bottom-left-radius: 4px
+}
+
+.list-group-submenu {
+	margin-left: 20px;
+}
+
+
+#foo {
+	background-color: lightblue;
+	width: 100%;
+	text-align: left;
+	line-height: 25px;
+}
+
+<!-- End of file -->

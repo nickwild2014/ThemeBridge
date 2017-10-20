@@ -1,0 +1,157 @@
+/* .nav > li > a:hover, .nav > li > a:focus {
+    background-color: #29a9df;
+    text-decoration: none;  
+	margin-top: -14px;
+} */
+
+/* .navbar-inverse .
+ .active > a, .navbar-inverse .nav .active > a:hover, .navbar-inverse .nav .active > a:focus {
+    background-color: #111111;
+    color: #ffffff;
+
+} */
+
+/*  .navbar .nav > .active > a:hover {
+    background: none repeat scroll 0 0 #29a9df !important;
+    border-top: 4px solid #29a9df !important;
+    box-shadow: none;
+    color: #fff !important;
+} */
+
+/* a:hover
+{
+	 color: #ffffff;
+	 border: 4px solid;
+} 00D1E5*/
+
+.btn_addconfig
+{
+	float : right;
+	margin-bottom: 20px;
+}
+
+#myTable tbody.content tr:hover {
+    background-color: #EAEAEA!important;
+}
+
+#configuration tbody.content tr:hover,  #configuration_table tbody.content tr:hover{
+    background-color: #EAEAEA!important;
+}
+
+
+
+.patch 
+{
+    background: black;
+}
+
+
+
+.tableheader
+{
+	background: #C0C0C0;
+}
+
+.navbar .nav > li > a.dropdown-toggle {
+    position: relative;
+    bottom: -1px;
+    z-index: 1005;
+    background: white;
+    padding-bottom: 12px;
+}
+
+
+ul.nav li.dropdown:hover ul.dropdown-menu {
+    /* ... */
+    border-top: 1px solid #000;
+}
+
+
+.border-lay
+{
+	border: 1px solid black;
+	
+    padding: 33px;
+	margin-top: 14px;
+	height: 195px;
+}
+
+
+.sub-head
+{
+	background-color: white;
+    margin-left: 3px;
+    margin-top: -43px;
+    width: 198px;
+}
+
+.heading
+{
+	color: #82CAFA;
+}
+
+
+table.dataTable tbody th, table.dataTable tbody td
+{
+    padding: 7px 10px;
+}
+
+.content
+{
+	font-size: 12px;
+
+}
+
+.border
+{
+	border: 2px solid gray;
+    padding: 48px;
+}
+
+.backscreen
+{
+	background-color: #CCFB5D;
+}
+
+.date
+{
+	float: right;
+}
+
+.command
+{
+	text-align: center;
+}
+
+.patch
+ {
+	background: linear-gradient(to bottom, #585858 0%, #111111 100%)
+    
+}
+
+.font
+{
+	color: #4a4235;
+    font-family: tahoma;
+    font-size: 15px;
+	float: right;
+	padding: 10px;
+}
+
+.top-level
+{
+	border: 1px solid lightgray;
+}
+
+
+.nav.nav-pills.font a:active {
+    background-color: yellow;
+    color: red;
+}``             
+
+.nav.nav-pills.font a:focus {
+    background-color: gray;
+    color: red;
+}
+
+

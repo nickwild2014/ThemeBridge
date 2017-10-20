@@ -1,0 +1,1 @@
+select TRIM(NPRCUSTMNM) as customerid FROM MASTER WHERE MASTER_REF = '{referenceNumber}'

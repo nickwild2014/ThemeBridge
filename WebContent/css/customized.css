@@ -1,0 +1,377 @@
+/*-----------------customized.css-----------------*/
+footer {
+  		position: fixed;
+  		bottom: 0;
+  		width: 100%;
+  		left: 0px;
+  		height: 40px;
+  		background-color: #cdcdcd; /*#f5f5f5;*/
+}
+
+.text-muted {
+  margin: 10px 0;
+}
+
+#configuration tbody.content tr:hover, #collateralEnquiryTable tbody.content tr:hover,#documentEnquiryTable tbody.content tr.hover,  #configuration_table tbody.content tr:hover, #fdDataTable tbody.content tr:hover
+{
+    background-color: #cdcdcd ! important;/*#82CAFA !important; /*#EAEAEA!important; #c1cdc1*/
+}
+
+.butpos{
+	padding-bottom: 6px; 
+	padding-top: 6px; 
+	border-top-width: 1px; 
+	margin-top: 250px;
+}
+
+h4, h5
+{
+	color: #00aed7; /*#FF0000*/;
+}
+ 
+.patch 
+{
+    background: #0070B6 !important;  /*#5287a6; #38ACEC; #0070B6; #2E9AFE; #3399FF;#ff6600*/
+	
+}
+
+.tableheader
+{
+	background: #C0C0C0;
+}
+
+.navbar .nav > li > a.dropdown-toggle {
+    position: relative;
+    bottom: -1px;
+    z-index: 1005;
+    background: white;
+    padding-bottom: 12px;
+}
+
+ul.nav li.dropdown:hover ul.dropdown-menu {
+    /* ... */
+    border-top: 1px solid #000;
+}
+
+/**********************/
+.border-lay
+{
+	border: 1px solid black;	
+    padding: 33px;
+	margin-top: 14px;
+	height: 195px;
+}
+
+.border-lay
+{
+	border: 1px solid black;
+	padding: 33px;
+	margin-top: 14px;
+	height: 295px;
+}
+
+ul.nav li.dropdown:hover {
+    border-top: 1px solid #000;
+}
+
+/*--------------------*/
+.sub-head
+{
+	background-color: white;
+    margin-left: 3px;
+    margin-top: -43px;
+    width: 198px;
+}
+
+.sub-head
+{
+	background-color: white;
+    margin-left: 3px;
+    margin-top: -52px;
+    width: 225px;
+}
+
+/*--------------------------------*/
+
+table.dataTable tbody th, table.dataTable tbody td
+{
+    padding: 7px 10px;
+}
+
+.content
+{
+	font-size: 12px;
+
+}
+
+.border
+{
+	border: 2px solid gray;
+    padding: 48px;
+}
+
+.backscreen
+{
+	background-color: #CCFB5D;
+}
+
+.date
+{
+	float: right;
+}
+
+.command
+{
+	text-align: center;
+}
+
+.font
+{
+	color: #4a4235;
+    font-family: tahoma;
+    font-size: 15px;
+	float: right;
+	padding: 10px;
+}
+
+.top-level
+{
+	border: 1px solid lightgray;
+}
+
+/*---------------------------------custom.css---------------------------------*/
+
+.sub-header {
+	border-bottom: 1px solid #EEEEEE;
+	padding-bottom: 10px;
+}
+
+.sidebar {
+	background-color: #F5F5F5;
+	border: 1px solid #EEEEEE;
+	border-radius: 3px 3px 3px 3px;
+	overflow-x: hidden;
+	overflow-y: auto;
+	top: 35px;
+}
+
+.sidebar:after {
+	box-sizing: border-box;
+	position: absolute;
+	top: 15px;
+	left: 15px;
+	font-size: 12px;
+	font-weight: 700;
+	color: #959595;
+	/* text-transform: uppercase; */
+	letter-spacing: 1px;
+}
+
+.nav-sidebar {
+	margin-bottom: 20px;
+	margin-left: -20px;
+	margin-right: -21px;
+}
+
+.nav-sidebar>li>a {
+	padding-left: 20px;
+	padding-right: 20px;
+}
+
+.nav-sidebar>.active>a {
+	background-color: #aad3f7; /*#428BCA;*/
+/*	border: 0.5px solid #AAAAAA;*/
+	color: #EEEEEE;
+}
+.nav-sidebar>.inactive>a {
+	background-color: #257bca; /*#428BCA;*/
+/*	border: 0.5px solid #AAAAAA;*/
+	color: #EEEEEE;
+}
+
+.nav-sidebar>li>a:hover {
+	background-color: #257bca;
+	/* border: 0.5px solid #4289a8; */
+	color: #EEEEEE;
+}
+
+.nav-sidebar>li.active>a:hover , .nav-sidebar>li.inactive>a:hover{
+	background-color: #4289a8;
+	/* border: 0.5px solid #257bca; */
+	color: #EEEEEE;
+} 
+
+.main {
+	padding: 20px;
+}
+
+@media ( min-width : 768px) {
+	.main {
+		padding-left: 40px;
+		padding-right: 40px;
+	}
+}
+
+.main .page-header {
+	margin-top: 0;
+}
+
+.placeholders {
+	margin-bottom: 30px;
+	text-align: center;
+}
+
+.placeholders h4 {
+	margin-bottom: 0;
+}
+
+.placeholder {
+	margin-bottom: 20px;
+}
+
+.placeholder img {
+	border-radius: 50%;
+	display: inline-block;
+}
+
+.layout
+{	
+	padding: 7px 0 8px 60px;
+}
+
+.heading
+{
+	color: #FFFFFF;
+}
+
+.total-count
+{
+	background-color: gold;
+    color: red;
+    font-size: 17px;
+    padding: 11px;
+	
+}
+
+.form-horizontal
+{
+	margin-top: 25px;
+}
+
+.nav > li > a
+{
+	color: #ffffff;
+}
+
+.nav > li > a:hover, .nav > li > a:focus {
+    background-color: #ffffff;
+    color: #000000;
+    text-decoration: none;
+}
+
+.filter-search-layout {
+    border: 1px solid black;
+    padding: 10px;
+}
+
+.form-control
+{
+	border-radius:0px;
+}
+
+.form-horizontal .control-label {
+    text-align: left ! important;
+}
+
+/* -- Following LVK -- */ 
+.horizontal-line {
+	border-bottom: 1px solid #666666;
+	margin-bottom: 10px;
+}
+
+.daterangeinstyle {
+	background: #fff;
+	cursor: pointer;
+	padding: 5px 10px;
+	border: 1px solid #ccc;
+}
+
+.daterangeoutstyle {
+	margin-top: 15px;
+}
+
+.nav > li > a .caret {
+    border-bottom-color: #ffffff;
+    border-top-color: #ffffff;
+}
+
+.nav > li > a:hover .caret, .nav > li.open > a .caret, .nav > li.active > a .caret {
+    border-bottom-color: #333333;
+    border-top-color: #333333;
+}
+
+.nav-pills>li.active>a,.nav-pills>li.active>a:hover,.nav-pills>li.active>a:focus,
+.nav-pills>li.open>a,.nav-pills>li.open>a:hover,.nav-pills>li.open>a:focus  {
+	color: #333333;
+	background-color: #eeeeee;
+}
+
+li.open > ul.dropdown-menu {
+	border-top: 1px solid #000;
+	background-clip: padding-box;
+    background-color: #fff;
+    border: 1px solid rgba(0, 0, 0, 0.15);
+    border-radius: 4px;
+    box-shadow: 0 6px 12px rgba(0, 0, 0, 0.176);
+    float: none;
+    font-size: 14px;
+    left: auto;
+    list-style: none outside none;
+    margin: 2px 0 0;
+    min-width: 160px;
+    padding: 5px 0;
+    position: absolute;
+    right: 0;
+    top: 100%;
+    z-index: 1000;
+}
+
+.nav> li> .caret {
+    border-color: #000 transparent -moz-use-text-color;
+    border-style: solid solid dotted;
+    border-width: 4px 4px 0;
+    content: "";
+    display: inline-block;
+    height: 0;
+    margin-left: 2px;
+    vertical-align: middle;
+    width: 0;
+	}
+/*-------------------------------- newly added --------------------------------------*/
+
+.legends {
+	border-style: none;
+	border-width: medium;
+	display: block;
+	margin-left: 18px;
+	margin-top: 22px;
+	width: auto;
+}
+
+.dashboards  {
+   border-color: menu;
+    border-style: groove;
+    border-width: 2px;
+    display: block;
+}
+
+
+.well {
+	
+	  background-color: #ffffff !important;
+   	 border: transparent;
+	border-color: #ffffff;
+    margin-bottom: 20px;
+    min-height: 20px;
+    padding: 19px;
+}

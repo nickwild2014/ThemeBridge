@@ -54,53 +54,8 @@ public class DateTimeUtil {
 
 	public static void main(String[] args) throws Exception {
 
-		// Date tiValueDate1 = DateTimeUtil.getTISystemValueDate();
-		// logger.debug("ValueDate : " + tiValueDate1); // 2017-02-17
-		//
-		// Date limitNodeExpiryDate2 =
-		// DateTimeUtil.getDateByStringDateInFormat("2017-02-17", "yyyy-MM-dd");
-		// logger.debug("Product : " + limitNodeExpiryDate2);
-		//
-		// logger.debug(tiValueDate1.compareTo(limitNodeExpiryDate2));
-		//
-		// if (tiValueDate1.compareTo(limitNodeExpiryDate2) <= 0) {
-		// logger.debug("Loop in");
-		// } else {
-		// logger.debug("Loop out");
-		// }
-
-		// String test = getStringLocalDateInFormat("dd-MMM-yy");
-		// logger.debug(test);
-
-		//
-		// String datetime = "";
-		// datetime = getDateAsEndSystemFormat();
-		// logger.info("datetime >>-->>" + datetime + "<<--<<");
-		//
-		// // Date date = null;
-		// // date =
-		// // logger.info("date >>-->>" + date + "<<--<<");
-		//
-		// // Timestamp timestamp = null;
-		// // timestamp = GetCurrentTimeStamp();
-		// // logger.info("timestamp >>-->>" + timestamp + "<<--<<");
-		//
-		// // getDateFromTimestamp("01/21/2016 14:56:29.045");
-		// // yyyy-MM-dd HH:mm:ss.S
-		//
-		// // logger.debug(getXmlGregorianDate("2016-01-21
-		// 14:56:29.045"));
-		//
-		// date();
-		//
-		// logger.debug(getLocalTime());
-		// getStringLocalDateInFormat("yyyymmddHHmm");
-
-		// logger.debug(getTISystemDate());
-
-		// System.out.println(getStringLocalDate(new Date(), "yyyy-MM-dd"));
-
-		System.out.println(dateStrformatChange("20170404", "yyyymmdd", "yyyy-mm-dd"));
+		//System.out.println(dateStrformatChange("20170404", "yyyymmdd", "yyyy-mm-dd"));
+		System.out.println(getLocalDateInXMLGregorian());
 	}
 
 	/**

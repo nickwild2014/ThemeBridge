@@ -11,29 +11,14 @@
 	var hostname = window.location.hostname; // webappuat2
 
 	var globalName = "";
-	var zoneName = "?zone=ZONE1";
+	var zoneName = "?zone=BOBZONE";
 	var port = window.location.port;
 
-	if (hostname == "10.10.7.137") {
-		globalName = "/tiplus2-global";// Preprod Webserver
-
-	} else if (hostname == "10.10.20.136") {
-		globalName = "/tiplus2-global";//SIT Webserver
-
-	} else if (hostname == "10.10.20.165") {
-		globalName = "/tiplus2-global";// UTA3 Webserver
-
-	} else if (hostname == "10.10.20.183") {
-		globalName = "/tiplus2-global";// UTA2 Webserver
-
-		//} else if (hostname == "misyswebuat2" || hostname == "10.10.20.182") {
-		//	globalName = ":8883/tiplus2-global";// UAT2 Appserver
-
-	} else if (hostname == "misyswebappmig1" || hostname == "10.10.20.164") {
-		globalName = ":8883/migration-global";// Migration Appserver
+	 if (hostname == "ntrnftd001" || hostname == "10.10.20.164") {
+		globalName = ":8830/tiplus2-global";// Migration Appserver
 
 	} else {
-		globalName = ":8883/tiplus2-global";
+		globalName = ":8830/tiplus2-global";
 	}
 	var tiUrl = protocolName + "//" + hostname + globalName + zoneName;
 

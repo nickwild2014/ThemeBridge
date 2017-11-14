@@ -6,6 +6,9 @@ import java.io.ByteArrayInputStream;
 import java.io.IOException;
 import java.io.InputStreamReader;
 
+import com.bs.theme.bob.adapter.adaptee.SWIFTSwiftOutAdapteeStaging;
+import com.bs.themebridge.token.util.ConfigurationUtil;
+import com.bs.themebridge.util.ThemeBridgeUtil;
 import com.ibm.mq.jms.MQQueue;
 import javax.jms.Connection;
 import javax.jms.ConnectionFactory;
@@ -76,48 +79,72 @@ public class MQMessageManager {
 	 */
 	@SuppressWarnings("finally")
 	public static boolean pushMqMessage(String jndiName, String queueName, String swiftMessage) {
+		boolean result = false;
+
+		if (queueName != null && !queueName.isEmpty()
+				&& (queueName.contains("swift") || queueName.equalsIgnoreCase("swift"))) {
+			logger.info("swift in message getting process ");
+			String swiftInQueueName = ConfigurationUtil.getValueFromKey("SwiftInMQName");
+			int port = ThemeBridgeUtil.StringtoInt(ConfigurationUtil.getValueFromKey("SwiftInMQPort"));
+			String hostname = ConfigurationUtil.getValueFromKey("SwiftInMQHostName");
+			String channel = ConfigurationUtil.getValueFromKey("SwiftInMQChannelName");
+			String qManager = ConfigurationUtil.getValueFromKey("SwiftInMQManagerName");
+			result = 	SWIFTSwiftOutAdapteeStaging.writeMQMessage(swiftMessage, port, hostname, channel, qManager, swiftInQueueName);
+		}
+		if (queueName != null && !queueName.isEmpty()
+				&& (queueName.contains("sfms") || queueName.equalsIgnoreCase("sfms"))) {
+			logger.info("sfms-In message getting process ");
+			String SfmsInMQName = ConfigurationUtil.getValueFromKey("SfmsInMQName");
+			int port = ThemeBridgeUtil.StringtoInt(ConfigurationUtil.getValueFromKey("SfmsInMQPort"));
+			String hostname = ConfigurationUtil.getValueFromKey("SfmsInMQHostName");
+			String channel = ConfigurationUtil.getValueFromKey("SfmsInMQChannelName");
+			String qManager = ConfigurationUtil.getValueFromKey("SfmsInMQManagerName");
+			result = SWIFTSwiftOutAdapteeStaging.writeMQMessage(swiftMessage, port, hostname, channel, qManager, SfmsInMQName);
+		}
+
+		// SWIFTSwiftOutAdapteeStaging.writeMQMessage( "",12,"","","","");
 
 		// logger.debug("Entering into Post message into MQ Queue");
 		// logger.debug("JNDI Name : " + jndiName + "\tQueue Name :" + queueName
 		// + "\tSwiftMessage : " + swiftMessage);
-		logger.debug("JNDI Name : " + jndiName + "\t\tQueue Name :" + queueName);
+		logger.debug("Queue Name :" + queueName);
 
-		boolean result = false;
-		Session session = null;
-		Connection connection = null;
-
-		try {
-			connection = getMQJNDIConnection(jndiName);
-			// create a queue session
-			session = connection.createSession(false, Session.DUPS_OK_ACKNOWLEDGE);
-			Queue queue = session.createQueue("queue:///" + queueName);
-			// TODO While writing MQ Queue using JMS must declare client
-			((MQQueue) queue).setTargetClient(1);
-			// Create a MessageProducer from the Session to the Queue
-			MessageProducer producer = session.createProducer(queue);
-			producer.setDeliveryMode(DeliveryMode.NON_PERSISTENT);
-			// Create a message
-			TextMessage message = session.createTextMessage(swiftMessage);
-			// Tell the producer to send the message
-			producer.send(message);
-			result = true;
-			producer.close();
-			session.close();
-
-		} catch (JMSException e) {
-			logger.error("Push MQ Message JNDI JMSException..! " + e.getMessage(), e);
-			e.printStackTrace();
-			result = false;
-
-		} catch (Exception e) {
-			logger.error("Push MQ Message MQ Exception..! " + e.getMessage(), e);
-			e.printStackTrace();
-			result = false;
-
-		} finally {
-			// close the queue connection
-			surrenderMQ(connection, null, session);
-		}
+		
+//		Session session = null;
+//		Connection connection = null;
+//
+//		try {
+//			connection = getMQJNDIConnection(jndiName);
+//			// create a queue session
+//			session = connection.createSession(false, Session.DUPS_OK_ACKNOWLEDGE);
+//			Queue queue = session.createQueue("queue:///" + queueName);
+//			// TODO While writing MQ Queue using JMS must declare client
+//			((MQQueue) queue).setTargetClient(1);
+//			// Create a MessageProducer from the Session to the Queue
+//			MessageProducer producer = session.createProducer(queue);
+//			producer.setDeliveryMode(DeliveryMode.NON_PERSISTENT);
+//			// Create a message
+//			TextMessage message = session.createTextMessage(swiftMessage);
+//			// Tell the producer to send the message
+//			producer.send(message);
+//			result = true;
+//			producer.close();
+//			session.close();
+//
+//		} catch (JMSException e) {
+//			logger.error("Push MQ Message JNDI JMSException..! " + e.getMessage(), e);
+//			e.printStackTrace();
+//			result = false;
+//
+//		} catch (Exception e) {
+//			logger.error("Push MQ Message MQ Exception..! " + e.getMessage(), e);
+//			e.printStackTrace();
+//			result = false;
+//
+//		} finally {
+//			// close the queue connection
+//			surrenderMQ(connection, null, session);
+//		}
 		logger.debug("Pushing message into MQ Queue status : " + result);
 		return result;
 	}
@@ -255,10 +282,10 @@ public class MQMessageManager {
 	public static void main(String[] args) {
 
 		logger.debug("TEST Queue Connection : ");
-		//Connection conn = getMQJNDIConnection("jms/kmblswiftout");
+		// Connection conn = getMQJNDIConnection("jms/kmblswiftout");
 
 		MQMessageManager v = new MQMessageManager();
-		//v.pushMqMessage("jms/kmblswiftout", "TI.OUT", "POSTTESTSWIFTMSG");
+		// v.pushMqMessage("jms/kmblswiftout", "TI.OUT", "POSTTESTSWIFTMSG");
 		v.pushMqMessage("jms/kmblswiftinQCF", "TI.INCOMING", "POSTTESTSWIFTMSG");
 		// pullMqMessage("jms/kmblswiftout", "TI.IN");
 	}

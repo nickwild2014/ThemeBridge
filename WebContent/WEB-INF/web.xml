@@ -15,17 +15,21 @@
 	<listener>
 		<listener-class>com.bs.themebridge.listener.sync.PostingStagingListener</listener-class>
 	</listener>
+	<listener>
+		<listener-class>com.bs.themebridge.listener.sync.SwiftInSyncListener</listener-class>
+	</listener>
+	<listener>
+		<listener-class>com.bs.themebridge.listener.sync.SFMSInBgMqSyncListener</listener-class>
+	</listener>
 
-	<!-- <listener> <listener-class>com.bs.themebridge.listener.sync.BaseRateSyncListener</listener-class> 
+
+	<!--<listener> <listener-class>com.bs.themebridge.listener.sync.SFMSInIlcMqSyncListener</listener-class> 
+		</listener> <listener> <listener-class>com.bs.themebridge.listener.sync.BaseRateSyncListener</listener-class> 
 		</listener> <listener> <listener-class>com.bs.themebridge.listener.sync.FXRateSyncListener</listener-class> 
-		</listener> <listener> <listener-class>com.bs.themebridge.listener.sync.SwiftInSyncListener</listener-class> 
-		</listener> <listener> <listener-class>com.bs.themebridge.listener.sync.SFMSInBgMqSyncListener</listener-class> 
-		</listener> <listener> <listener-class>com.bs.themebridge.listener.sync.SFMSInIlcMqSyncListener</listener-class> 
 		</listener> <listener> <listener-class>com.bs.themebridge.listener.sync.RETSyncListener</listener-class> 
 		</listener> <listener> <listener-class>com.bs.themebridge.listener.sync.CustomerDataSyncListener</listener-class> 
 		</listener> <listener> <listener-class>com.bs.themebridge.listener.sync.AccountDataSyncListener</listener-class> 
 		</listener> -->
-
 
 	<!-- SSO Starts here -->
 	<!-- SSO(Single Sign-On) starts here -->

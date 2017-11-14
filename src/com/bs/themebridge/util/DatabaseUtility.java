@@ -17,6 +17,8 @@ import javax.sql.DataSource;
 
 import org.apache.log4j.Logger;
 
+import com.bs.themebridge.token.util.ConfigurationUtil;
+
 /**
  * @since 2016-JUN-15
  * @version 1.01
@@ -31,6 +33,8 @@ public class DatabaseUtility {
 	public static void main(String args[]) {
 		logger.debug("Themebridge connection : " + getThemebridgeConnection());
 		logger.debug("TIZONE connection : " + getTizoneConnection());
+		logger.debug("Tresury connection : " + getTreasuryConnection());
+		
 		// logger.debug(getIdbTiplusConnection());
 		logger.debug(getIdbFcConnection());
 	}
@@ -42,46 +46,48 @@ public class DatabaseUtility {
 	 */
 	
 	
-//	public static Connection getThemebridgeConnection() {
-//
-//		Context ctx = null;
-//		Connection conn = null;
-//
-//		Hashtable<String, String> ht = new Hashtable<String, String>();
-//		ht.put(Context.INITIAL_CONTEXT_FACTORY,"weblogic.jndi.WLInitialContextFactory");
-//		ht.put(Context.PROVIDER_URL, "t3://172.16.251.202:7726");
-//
-//		try {
-//			ctx = new InitialContext(ht);
-//			javax.sql.DataSource ds = (javax.sql.DataSource) ctx
-//					.lookup("jdbc/themebridge");
-//			logger.info("Hashtable +>" + ht);
-//			conn = ds.getConnection();
-//		} catch (NamingException e) {
-//			e.printStackTrace();
-//			logger.error("Connection  NamingException !1!!!!", e);
-//		} catch (SQLException e) {
-//			e.printStackTrace();
-//			logger.error("Connection  SQLException !1!!!!", e);
-//		}
-//
-//		return conn;
-//	}
-	
-	public static Connection getTresuryConnection() {
+	public static Connection getThemebridgeConnection() {
 
 		Context ctx = null;
 		Connection conn = null;
 
 		Hashtable<String, String> ht = new Hashtable<String, String>();
 		ht.put(Context.INITIAL_CONTEXT_FACTORY,"weblogic.jndi.WLInitialContextFactory");
-		ht.put(Context.PROVIDER_URL, "t3://172.16.251.202:7726");
+		String bootstarpUrl = ConfigurationUtil.getValueFromKey("BootstrapUrl");
+		ht.put(Context.PROVIDER_URL, bootstarpUrl);
 
 		try {
 			ctx = new InitialContext(ht);
 			javax.sql.DataSource ds = (javax.sql.DataSource) ctx
-					.lookup("jdbc/tresury");
+					.lookup("jdbc/themebridge");
 			logger.info("Hashtable +>" + ht);
+			conn = ds.getConnection();
+		} catch (NamingException e) {
+			e.printStackTrace();
+			logger.error("Connection  NamingException !1!!!!", e);
+		} catch (SQLException e) {
+			e.printStackTrace();
+			logger.error("Connection  SQLException !1!!!!", e);
+		}
+
+		return conn;
+	}
+	
+	public static Connection getTreasuryConnection() {
+
+		Context ctx = null;
+		Connection conn = null;
+
+		Hashtable<String, String> ht = new Hashtable<String, String>();
+		ht.put(Context.INITIAL_CONTEXT_FACTORY,"weblogic.jndi.WLInitialContextFactory");
+		String bootstarpUrl = ConfigurationUtil.getValueFromKey("BootstrapUrl");
+		ht.put(Context.PROVIDER_URL, bootstarpUrl);
+
+		try {
+			ctx = new InitialContext(ht);
+			javax.sql.DataSource ds = (javax.sql.DataSource) ctx
+					.lookup("jdbc/treasury");
+			logger.info("Hashtable treasury +>" + ht);
 			conn = ds.getConnection();
 		} catch (NamingException e) {
 			e.printStackTrace();
@@ -102,7 +108,8 @@ public class DatabaseUtility {
 
 		Hashtable<String, String> ht = new Hashtable<String, String>();
 		ht.put(Context.INITIAL_CONTEXT_FACTORY,"weblogic.jndi.WLInitialContextFactory");
-		ht.put(Context.PROVIDER_URL, "t3://172.16.251.202:7726");
+		String bootstarpUrl = ConfigurationUtil.getValueFromKey("BootstrapUrl");
+		ht.put(Context.PROVIDER_URL, bootstarpUrl);
 
 		try {
 			ctx = new InitialContext(ht);
@@ -483,36 +490,36 @@ public class DatabaseUtility {
 
 	/************* Below method are only for local testing *****************/
 
-	 public static Connection getThemebridgeConnection() {
-	
-	 Connection connection = null;
-	 try {
-	 Class.forName("oracle.jdbc.driver.OracleDriver");
-	
-	 String SIT_JdbcURL = "jdbc:oracle:thin:@localhost:1521:orcl";
-		
-		
-	 /** SIT **/
-	 connection = DriverManager.getConnection(SIT_JdbcURL, "HR",
-	 "test1234");
-	 if (connection == null) {
-	 logger.debug("Themebridge connection(DB) failed! >>-->> null");
-	 }
-	
-	 } catch (ClassNotFoundException e) {
-	 logger.debug("ThemeBridge ClassNotFoundException!" + e.getMessage());
-	 e.printStackTrace();
-	
-	 } catch (SQLException e) {
-	 logger.debug("ThemeBridge SQLException!" + e.getMessage());
-	 e.printStackTrace();
-	
-	 } catch (Exception e) {
-	 logger.debug("ThemeBridge Exception!" + e.getMessage());
-	 e.printStackTrace();
-	 }
-	 return connection;
-	 }
+//	 public static Connection getThemebridgeConnection() {
+//	
+//	 Connection connection = null;
+//	 try {
+//	 Class.forName("oracle.jdbc.driver.OracleDriver");
+//	
+//	 String SIT_JdbcURL = "jdbc:oracle:thin:@localhost:1521:orcl1";
+//		
+//		
+//	 /** SIT **/
+//	 connection = DriverManager.getConnection(SIT_JdbcURL, "system",
+//	 "test1234");
+//	 if (connection == null) {
+//	 logger.debug("Themebridge connection(DB) failed! >>-->> null");
+//	 }
+//	
+//	 } catch (ClassNotFoundException e) {
+//	 logger.debug("ThemeBridge ClassNotFoundException!" + e.getMessage());
+//	 e.printStackTrace();
+//	
+//	 } catch (SQLException e) {
+//	 logger.debug("ThemeBridge SQLException!" + e.getMessage());
+//	 e.printStackTrace();
+//	
+//	 } catch (Exception e) {
+//	 logger.debug("ThemeBridge Exception!" + e.getMessage());
+//	 e.printStackTrace();
+//	 }
+//	 return connection;
+//	 }
 
 //	 public static Connection getTizoneConnection() {
 //	
@@ -520,11 +527,11 @@ public class DatabaseUtility {
 //	 try {
 //	 Class.forName("oracle.jdbc.driver.OracleDriver");
 //	
-//	 String SIT_JdbcURL = "jdbc:oracle:thin:@localhost:1521:orcl";
+//	 String SIT_JdbcURL = "jdbc:oracle:thin:@localhost:1521:orcl1";
 //	
 //	
 //	 /** SIT **/
-//	 connection = DriverManager.getConnection(SIT_JdbcURL, "HR",
+//	 connection = DriverManager.getConnection(SIT_JdbcURL, "system",
 //	 "test1234");
 //
 //	

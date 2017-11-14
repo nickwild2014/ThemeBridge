@@ -744,7 +744,7 @@ public class DateTimeUtil {
 	 * @return {@link Date}
 	 * @throws Exception
 	 */
-	public static XMLGregorianCalendar getLocalDateInXMLGregorian() throws Exception {
+	public static XMLGregorianCalendar getLocalDateInXMLGregorian() {
 		XMLGregorianCalendar result = null;
 
 		try {
@@ -765,7 +765,6 @@ public class DateTimeUtil {
 
 		} catch (Exception e) {
 			logger.error(e.getMessage(), e);
-			throw new Exception(e.getMessage());
 		}
 
 		return result;

@@ -48,7 +48,7 @@ public class BridgeGateway implements Gateway {
 	public String process(@WebParam(name = "input") final String input) {
 
 		// logger.debug("*** Entering into BridgeGateway ***");
-		// logger.debug("*** BridgeGateway ***" + input);
+		 logger.debug("*** BridgeGateway ***" + input);
 		String result = "";
 		try {
 			final IServiceProcessor aServiceHandler = new ServiceHandler();

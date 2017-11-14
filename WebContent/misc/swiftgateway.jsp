@@ -199,13 +199,13 @@
 		// MQMessageManager mqmanagerObj = new MQMessageManager();
 		String mqName = "";
 		String swiftMessage = "";
-		String swiftOutJndiName = "";
+		//String swiftOutJndiName = "";
 		Boolean swiftoutQueuePostingStatus = false;
 		if (request.getParameter("swiftMessage") != null) {
 			mqName = request.getParameter("mqName");
 			swiftMessage = request.getParameter("swiftMessage");
-			swiftOutJndiName = request.getParameter("swiftOutJndiName");
-			swiftoutQueuePostingStatus = MQMessageManager.pushMqMessage(swiftOutJndiName, mqName, swiftMessage);
+			//swiftOutJndiName = request.getParameter("swiftOutJndiName");
+			swiftoutQueuePostingStatus = MQMessageManager.pushMqMessage("", mqName, swiftMessage);
 		}
 	%>
 
@@ -224,14 +224,14 @@
 
 		<form method="POST" action="">
 
-			<div class="form-group">
+			<%-- <div class="form-group">
 				<label for="" class="col-md-2 control-label">JNDI Name</label>
 				<div class="col-md-3">
 					<input type="text" class="form-control" id="swiftOutJndiName"
 						name="swiftOutJndiName" value="<%=swiftOutJndiName%>"
 						placeholder="JNDI-name" required>
 				</div>
-			</div>
+			</div> --%>
 
 			<div class="form-group">
 				<label for="" class="col-md-1 control-label">MQ Name</label>
